@@ -9,10 +9,10 @@ namespace Education_PR_2025
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            UserInterface userInterface = new UserInterface();
-            userInterface.Start();
+            UserInterface ui = new UserInterface();
+            ui.Run();
         }
     }
 }
