@@ -107,7 +107,7 @@ namespace Education_PR_2025
                 BigInteger decryptedMessage = RSAAlgorithm.Decrypt(ciphertext, privateKey, n);
                 Console.WriteLine($"Расшифрованное сообщение: {decryptedMessage}");
 
-                Console.WriteLine("\n------------------------------------------------------------------------------------------\n\nВернутся в начальное меню ?\n1 - Да\n2 - Начать зановго RSA");
+                Console.WriteLine("\n------------------------------------------------------------------------------------------\n\nВернутся в начальное меню ?\n1 - Да\n2 - Начать заново RSA");
                 char input = Console.ReadKey(true).KeyChar;
                 if (input == '1')
                     _nextMethodToRun = "Start";
