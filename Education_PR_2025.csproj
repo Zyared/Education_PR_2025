@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DiffieHellmanProtocol.cs" />
     <Compile Include="RSA.cs" />
     <Compile Include="ErrorInfo.cs" />
     <Compile Include="Program.cs" />

@@ -32,6 +32,9 @@ namespace Education_PR_2025
                     case "RunRSA":
                         RunRSA();
                         break;
+                    case "RunDH":
+                        RunDH();
+                        break;
                     case "Exit":
                         return; // Завершаем приложение
                     default:
@@ -130,7 +133,7 @@ namespace Education_PR_2025
             Console.WriteLine("Вы уверенны что хотите запустить задачу выполнения протокола Диффи-Хелман ?\n1 - Да\n2 - Нет");
             char input = Console.ReadKey(true).KeyChar;
             if (input == '1')
-                _nextMethodToRun = "Exit";
+                _nextMethodToRun = "RunDH";
             else if (input == '2')
             {
                 Console.Clear();
@@ -141,6 +144,36 @@ namespace Education_PR_2025
                 _error.Set("Пожалуйста выберите нужное действие", 03, this);
             }
         }
+        public void RunDH() 
+        {
+            Console.Clear();
+            try
+            {
+                // Получаем входные данные от пользователя
+                (BigInteger p, BigInteger g, BigInteger a, BigInteger b) = DiffieHellmanProtocol.GetInputFromUser();
 
+                // Запускаем протокол Диффи-Хеллмана
+                (BigInteger sharedKeyA, BigInteger sharedKeyB) = DiffieHellmanProtocol.RunDiffieHellman(p, g, a, b);
+
+                Console.WriteLine("\n------------------------------------------------------------------------------------------\n\nВернутся в начальное меню ?\n1 - Да\n2 - Начать протокол Деффи-Хелман ?");
+                char input = Console.ReadKey(true).KeyChar;
+                if (input == '1')
+                    _nextMethodToRun = "Start";
+                else if (input == '2')
+                {
+                    Console.Clear();
+                    _nextMethodToRun = "RunDH";
+                }
+                else
+                {
+                    Console.WriteLine("пожалуйста выберите верное действие");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                _error.Set($"Ошибка, {ex.Message}", 03, this);
+            }
+
+        }
     }
 }
