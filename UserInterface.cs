@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Numerics;
 
 namespace Education_PR_2025
 {
@@ -28,6 +29,9 @@ namespace Education_PR_2025
                     case "AcceptDifHell":
                         AcceptDifHell();
                         break;
+                    case "RunRSA":
+                        RunRSA();
+                        break;
                     case "Exit":
                         return; // Завершаем приложение
                     default:
@@ -39,6 +43,7 @@ namespace Education_PR_2025
 
         public void Start()
         {
+            Console.Clear();
             Console.WriteLine("Выберете нужное действие: \n1 - алгоритм RSA \n2 - Протокол Диффи-Хелман \nДля закрытия программы нажмите 0");
             char input = Console.ReadKey(true).KeyChar;
 
@@ -66,7 +71,7 @@ namespace Education_PR_2025
             Console.WriteLine("Вы уверенны что хотите запустить задачу выполнения алгоритма RSA ?\n1 - Да\n2 - Нет");
             char input = Console.ReadKey(true).KeyChar;
             if (input == '1')
-                _nextMethodToRun = "Exit";
+                _nextMethodToRun = "RunRSA";
             else if (input == '2')
             {
                 Console.Clear();
@@ -75,6 +80,47 @@ namespace Education_PR_2025
             else
             {
                 _error.Set("Пожалуйста выберите нужное действие", 02, this);
+            }
+        }
+        public void RunRSA()
+        {
+            Console.Clear();
+            try
+            {
+                // Получаем входные данные от пользователя
+                (BigInteger p, BigInteger q, BigInteger message) = RSAAlgorithm.GetInputFromUser();
+
+                // Генерируем ключи
+                (BigInteger publicKey, BigInteger privateKey, BigInteger n) = RSAAlgorithm.GenerateKeys(p, q);
+
+                Console.WriteLine($"Открытый ключ (e, n): ({publicKey}, {n})");
+                Console.WriteLine($"Закрытый ключ (d, n): ({privateKey}, {n})");
+
+                // Шифруем сообщение
+                BigInteger ciphertext = RSAAlgorithm.Encrypt(message, publicKey, n);
+                Console.WriteLine($"Зашифрованное сообщение: {ciphertext}");
+
+                // Расшифровываем сообщение
+                BigInteger decryptedMessage = RSAAlgorithm.Decrypt(ciphertext, privateKey, n);
+                Console.WriteLine($"Расшифрованное сообщение: {decryptedMessage}");
+
+                Console.WriteLine("\n------------------------------------------------------------------------------------------\n\nВернутся в начальное меню ?\n1 - Да\n2 - Начать зановго RSA");
+                char input = Console.ReadKey(true).KeyChar;
+                if (input == '1')
+                    _nextMethodToRun = "Start";
+                else if (input == '2')
+                {
+                    Console.Clear();
+                    _nextMethodToRun = "RunRSA";
+                }
+                else
+                {
+                    Console.WriteLine("пожалуйста выберите верное действие");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                _error.Set($"Ошибка, {ex.Message}", 03, this);
             }
         }
 
