@@ -12,6 +12,8 @@ namespace Education_PR_2025
         public UserInterface()
         {
             _error = new ErrorInfo();
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
         }
 
         public void Run() // Главный метод, который запускает приложение
