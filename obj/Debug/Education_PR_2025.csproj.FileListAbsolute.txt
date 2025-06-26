@@ -5,3 +5,10 @@ C:\Users\CHURAEV_AA\Documents\GitHub\Education_PR_2025\obj\Debug\Education_PR_20
 C:\Users\CHURAEV_AA\Documents\GitHub\Education_PR_2025\obj\Debug\Education_PR_2025.csproj.CoreCompileInputs.cache
 C:\Users\CHURAEV_AA\Documents\GitHub\Education_PR_2025\obj\Debug\Education_PR_2025.exe
 C:\Users\CHURAEV_AA\Documents\GitHub\Education_PR_2025\obj\Debug\Education_PR_2025.pdb
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\obj\Debug\Education_PR_2025.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\obj\Debug\Education_PR_2025.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\obj\Debug\Education_PR_2025.exe
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\obj\Debug\Education_PR_2025.pdb
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\bin\Debug\Education_PR_2025.exe.config
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\bin\Debug\Education_PR_2025.exe
+C:\Users\Administrator\source\repos\Zyared\Education_PR_2025\bin\Debug\Education_PR_2025.pdb
